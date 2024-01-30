@@ -1,0 +1,6 @@
+Bounding Volume(충돌 영역)
+ - 유니티 : Collidier(컬라이더)
+ - 구, 캡슐, 박스
+
+AABB : Axis Aligened Bounding Box
+OBB : Oriented Bounding Box
