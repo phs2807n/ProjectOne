@@ -53,10 +53,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maginType: 2
   Level: 0
-  UseMp: 
-  damage: []
-  count: 
-  cooltimeList: []
+  UseMp: 06000000090000000c0000000f00000012000000
+  damage:
+  - 2
+  - 2.5
+  - 3
+  - 3.5
+  - 5
+  count: 030000000500000007000000090000000c000000
+  cooltimeList:
+  - 1.5
+  - 1.8
+  - 2
+  - 2.4
+  - 2.8
   player: {fileID: 0}
   cooltime_max: 0
 --- !u!1 &2118991538042544347
@@ -343,10 +353,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maginType: 0
   Level: 0
-  UseMp: 
-  damage: []
-  count: 
-  cooltimeList: []
+  UseMp: 0500000007000000090000000c0000000f000000
+  damage:
+  - 1
+  - 1.2
+  - 1.5
+  - 1.8
+  - 2
+  count: 0300000004000000050000000600000007000000
+  cooltimeList:
+  - 5
+  - 5.5
+  - 6
+  - 6.5
+  - 7
   player: {fileID: 0}
   cooltime_max: 0
 --- !u!1 &4121835524280707575
@@ -603,7 +623,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6000234848702082438}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -635,7 +655,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 20
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -922,10 +942,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maginType: 1
   Level: 0
-  UseMp: 
-  damage: []
-  count: 
-  cooltimeList: []
+  UseMp: 050000000500000007000000070000000a000000
+  damage:
+  - 0.5
+  - 0.8
+  - 1
+  - 1.2
+  - 1.5
+  count: 0100000002000000030000000400000005000000
+  cooltimeList:
+  - 3
+  - 3.5
+  - 4
+  - 4.5
+  - 5
   player: {fileID: 0}
   cooltime_max: 0
 --- !u!1 &7368921448100561383

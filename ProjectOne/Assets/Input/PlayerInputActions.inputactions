@@ -85,6 +85,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Skill",
+                    "type": "Button",
+                    "id": "2b7c6d4c-e250-4665-915f-f50e53950713",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hp",
+                    "type": "Button",
+                    "id": "828bfd88-f477-401d-8424-dd08d6292e59",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Mp",
+                    "type": "Button",
+                    "id": "c1568af2-0998-49a4-a585-93b3808f6034",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -94,7 +121,7 @@
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "New control scheme",
+                    "groups": "KeyBoardMouse",
                     "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -105,7 +132,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "New control scheme",
+                    "groups": "KeyBoardMouse",
                     "action": "Evasion",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -116,18 +143,7 @@
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "New control scheme",
-                    "action": "LeftAction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a27f9b3c-b31a-4b1e-aae3-e93928f26d27",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
+                    "groups": "KeyBoardMouse",
                     "action": "LeftAction",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -138,7 +154,7 @@
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "New control scheme",
+                    "groups": "KeyBoardMouse",
                     "action": "RightAction",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -146,7 +162,7 @@
                 {
                     "name": "",
                     "id": "850dac61-cb5e-40c5-a803-78cd7f84b292",
-                    "path": "<Keyboard>/1",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -157,7 +173,7 @@
                 {
                     "name": "",
                     "id": "a7df455b-011e-474b-99c5-dca457bea038",
-                    "path": "<Keyboard>/2",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -168,7 +184,7 @@
                 {
                     "name": "",
                     "id": "42ad84ef-2c7f-4ff9-b21b-de1ffebb947b",
-                    "path": "<Keyboard>/3",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -179,7 +195,7 @@
                 {
                     "name": "",
                     "id": "3e5c26e2-8bd7-4030-a1b7-942ae18a7f0c",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -197,14 +213,47 @@
                     "action": "change",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aacc9908-c8c5-4408-b7f0-befbf71f3e40",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05f99766-d6bf-4f55-a124-1b69b95b9de4",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5ced07ae-a70e-476a-bac3-c22d9f250929",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
     ],
     "controlSchemes": [
         {
-            "name": "New control scheme",
-            "bindingGroup": "New control scheme",
+            "name": "KeyBoardMouse",
+            "bindingGroup": "KeyBoardMouse",
             "devices": [
                 {
                     "devicePath": "<Keyboard>",

@@ -14,7 +14,6 @@ public class GameManager : Singleton<GameManager>
     public PlayerMoving player_moving;
     public PlayerState player_state;
     public Weapon weapon;
-    public MaginWeapon magin;
     public Enemy enemy;
 
     [Header("# Player Info")]
@@ -26,6 +25,9 @@ public class GameManager : Singleton<GameManager>
 
     public bool isMove;
 
+    public Action<int> changeWeaon;
+
+    bool isEvasion = true;
 
     protected override void Awake()
     {
@@ -53,12 +55,14 @@ public class GameManager : Singleton<GameManager>
         inputActions.Player.Run.performed += OnRun;
         inputActions.Player.Run.canceled += OnRun;
         inputActions.Player.Evasion.performed += OnEvasion;
+        inputActions.Player.change.performed += OnChange;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
 
+        inputActions.Player.change.performed -= OnChange;
         inputActions.Player.Evasion.performed -= OnEvasion;
         inputActions.Player.Run.canceled -= OnRun;
         inputActions.Player.Run.performed -= OnRun;
@@ -67,6 +71,16 @@ public class GameManager : Singleton<GameManager>
         inputActions.Player.RightAction.canceled -= onRightAction;
         inputActions.Player.RightAction.performed -= onRightAction;
         inputActions.Player.Disable();
+    }
+
+    private void OnChange(InputAction.CallbackContext context)
+    {
+        Weapon_no++;
+        if(Weapon_no > 2)
+        {
+            Weapon_no = 0;
+        }
+        changeWeaon?.Invoke(Weapon_no);
     }
 
     //private void OnAction1(InputAction.CallbackContext context)
@@ -122,10 +136,6 @@ public class GameManager : Singleton<GameManager>
     /// <exception cref="NotImplementedException"></exception>
     private void onRightAction(InputAction.CallbackContext context)
     {
-        if (context.canceled)
-        {
-            magin.Magin();
-        }
     }
 
     private void OnRun(InputAction.CallbackContext context)
@@ -142,18 +152,35 @@ public class GameManager : Singleton<GameManager>
 
     private void OnEvasion(InputAction.CallbackContext context)
     {
-        StartCoroutine(OnEvasionCoroutine());
+        if (isEvasion)
+        {
+            Evasion();
+            StartCoroutine(OnEvasionCoroutine());
+        }
+        
     }
 
     IEnumerator OnEvasionCoroutine()
     {
-        while(true)
+        float curTime = calltime;
+        while(curTime > 0.0f)
         {
-            Vector3 dir = GetMousePostion() - player_moving.transform.position;
-            dir = dir.normalized;
-            player_moving.transform.position += dir * evasion;
-            yield return new WaitForSeconds(calltime);
+            curTime -= Time.deltaTime;
+            
+
+            yield return null;
         }
+
+        isEvasion = true;
+    }
+
+    void Evasion()
+    {
+        isEvasion = false;
+
+        Vector3 dir = GetMousePostion() - player_moving.transform.position;
+        dir = dir.normalized;
+        player_moving.transform.position += dir * evasion;
     }
 
     /// <summary>

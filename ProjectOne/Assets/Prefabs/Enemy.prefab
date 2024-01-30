@@ -229,25 +229,25 @@ MonoBehaviour:
   Agi: 0
   EnemyList:
   - animCon: {fileID: 9100000, guid: f2855d618fc8d9c499189d3f39b9cbbc, type: 2}
-    Hp: 15
+    Hp: 5
     Atk: 0
     Def: 0
     Agi: 5
     Atk_dir: 1
   - animCon: {fileID: 22100000, guid: 050556270436d4f4288557291a1a99c0, type: 2}
-    Hp: 30
+    Hp: 10
     Atk: 2
     Def: 1
     Agi: 5
     Atk_dir: 1
   - animCon: {fileID: 22100000, guid: 12cfc8b2360c2fc4499d4f6f6607671a, type: 2}
-    Hp: 45
+    Hp: 20
     Atk: 5
     Def: 2
     Agi: 5
     Atk_dir: 2
   - animCon: {fileID: 22100000, guid: 8d1d920724ffb8a409ce0e458dc4b7a9, type: 2}
-    Hp: 60
+    Hp: 30
     Atk: 6
     Def: 3
     Agi: 5

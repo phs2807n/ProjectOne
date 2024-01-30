@@ -107,6 +107,33 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skill"",
+                    ""type"": ""Button"",
+                    ""id"": ""2b7c6d4c-e250-4665-915f-f50e53950713"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hp"",
+                    ""type"": ""Button"",
+                    ""id"": ""828bfd88-f477-401d-8424-dd08d6292e59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mp"",
+                    ""type"": ""Button"",
+                    ""id"": ""c1568af2-0998-49a4-a585-93b3808f6034"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -116,7 +143,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""New control scheme"",
+                    ""groups"": ""KeyBoardMouse"",
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -127,7 +154,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""New control scheme"",
+                    ""groups"": ""KeyBoardMouse"",
                     ""action"": ""Evasion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -138,18 +165,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""New control scheme"",
-                    ""action"": ""LeftAction"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a27f9b3c-b31a-4b1e-aae3-e93928f26d27"",
-                    ""path"": ""<Keyboard>/1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""KeyBoardMouse"",
                     ""action"": ""LeftAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -160,7 +176,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""New control scheme"",
+                    ""groups"": ""KeyBoardMouse"",
                     ""action"": ""RightAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -168,7 +184,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""850dac61-cb5e-40c5-a803-78cd7f84b292"",
-                    ""path"": ""<Keyboard>/1"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -179,7 +195,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a7df455b-011e-474b-99c5-dca457bea038"",
-                    ""path"": ""<Keyboard>/2"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -190,7 +206,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""42ad84ef-2c7f-4ff9-b21b-de1ffebb947b"",
-                    ""path"": ""<Keyboard>/3"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -201,7 +217,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3e5c26e2-8bd7-4030-a1b7-942ae18a7f0c"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -219,14 +235,47 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""change"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aacc9908-c8c5-4408-b7f0-befbf71f3e40"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skill"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""05f99766-d6bf-4f55-a124-1b69b95b9de4"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ced07ae-a70e-476a-bac3-c22d9f250929"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""New control scheme"",
-            ""bindingGroup"": ""New control scheme"",
+            ""name"": ""KeyBoardMouse"",
+            ""bindingGroup"": ""KeyBoardMouse"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -253,6 +302,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Action3 = m_Player.FindAction("Action3", throwIfNotFound: true);
         m_Player_Status = m_Player.FindAction("Status", throwIfNotFound: true);
         m_Player_change = m_Player.FindAction("change", throwIfNotFound: true);
+        m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
+        m_Player_Hp = m_Player.FindAction("Hp", throwIfNotFound: true);
+        m_Player_Mp = m_Player.FindAction("Mp", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -323,6 +375,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Action3;
     private readonly InputAction m_Player_Status;
     private readonly InputAction m_Player_change;
+    private readonly InputAction m_Player_Skill;
+    private readonly InputAction m_Player_Hp;
+    private readonly InputAction m_Player_Mp;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -336,6 +391,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Action3 => m_Wrapper.m_Player_Action3;
         public InputAction @Status => m_Wrapper.m_Player_Status;
         public InputAction @change => m_Wrapper.m_Player_change;
+        public InputAction @Skill => m_Wrapper.m_Player_Skill;
+        public InputAction @Hp => m_Wrapper.m_Player_Hp;
+        public InputAction @Mp => m_Wrapper.m_Player_Mp;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -372,6 +430,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @change.started += instance.OnChange;
             @change.performed += instance.OnChange;
             @change.canceled += instance.OnChange;
+            @Skill.started += instance.OnSkill;
+            @Skill.performed += instance.OnSkill;
+            @Skill.canceled += instance.OnSkill;
+            @Hp.started += instance.OnHp;
+            @Hp.performed += instance.OnHp;
+            @Hp.canceled += instance.OnHp;
+            @Mp.started += instance.OnMp;
+            @Mp.performed += instance.OnMp;
+            @Mp.canceled += instance.OnMp;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -403,6 +470,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @change.started -= instance.OnChange;
             @change.performed -= instance.OnChange;
             @change.canceled -= instance.OnChange;
+            @Skill.started -= instance.OnSkill;
+            @Skill.performed -= instance.OnSkill;
+            @Skill.canceled -= instance.OnSkill;
+            @Hp.started -= instance.OnHp;
+            @Hp.performed -= instance.OnHp;
+            @Hp.canceled -= instance.OnHp;
+            @Mp.started -= instance.OnMp;
+            @Mp.performed -= instance.OnMp;
+            @Mp.canceled -= instance.OnMp;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -420,13 +496,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
-    private int m_NewcontrolschemeSchemeIndex = -1;
-    public InputControlScheme NewcontrolschemeScheme
+    private int m_KeyBoardMouseSchemeIndex = -1;
+    public InputControlScheme KeyBoardMouseScheme
     {
         get
         {
-            if (m_NewcontrolschemeSchemeIndex == -1) m_NewcontrolschemeSchemeIndex = asset.FindControlSchemeIndex("New control scheme");
-            return asset.controlSchemes[m_NewcontrolschemeSchemeIndex];
+            if (m_KeyBoardMouseSchemeIndex == -1) m_KeyBoardMouseSchemeIndex = asset.FindControlSchemeIndex("KeyBoardMouse");
+            return asset.controlSchemes[m_KeyBoardMouseSchemeIndex];
         }
     }
     public interface IPlayerActions
@@ -440,5 +516,8 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnAction3(InputAction.CallbackContext context);
         void OnStatus(InputAction.CallbackContext context);
         void OnChange(InputAction.CallbackContext context);
+        void OnSkill(InputAction.CallbackContext context);
+        void OnHp(InputAction.CallbackContext context);
+        void OnMp(InputAction.CallbackContext context);
     }
 }

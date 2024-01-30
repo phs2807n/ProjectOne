@@ -9,7 +9,9 @@ public enum MaginType
 {
     Shovel,     // »ð
     Trident,    // »ïÁöÃ¢
-    Sickle      // ³´
+    Sickle,     // ³´
+    Hp,         // Hp Æ÷¼Ç
+    Mp          // Mp Æ÷¼Ç
 }
 
 public class Skill_Base : MonoBehaviour
@@ -77,15 +79,21 @@ public class Skill_Base : MonoBehaviour
         inputActions.Player.Action1.performed += OnAction1;
         inputActions.Player.Action2.performed += OnAction2;
         inputActions.Player.Action3.performed += OnAction3;
+        inputActions.Player.Hp.performed += OnHpPotion;
+        inputActions.Player.Mp.performed += OnMpPotion;
     }
 
     protected virtual void OnDisable()
     {
+        inputActions.Player.Mp.performed += OnMpPotion;
+        inputActions.Player.Hp.performed += OnHpPotion;
         inputActions.Player.Action3.performed -= OnAction3;
         inputActions.Player.Action2.performed -= OnAction2;
         inputActions.Player.Action1.performed -= OnAction1;
         inputActions.Player.Disable();
     }
+
+
     protected virtual void OnAction1(InputAction.CallbackContext context)
     {
     }
@@ -95,6 +103,14 @@ public class Skill_Base : MonoBehaviour
     }
 
     protected virtual void OnAction3(InputAction.CallbackContext context)
+    {
+    }
+
+    protected virtual void OnHpPotion(InputAction.CallbackContext context)
+    {
+    }
+
+    protected virtual void OnMpPotion(InputAction.CallbackContext context)
     {
     }
 

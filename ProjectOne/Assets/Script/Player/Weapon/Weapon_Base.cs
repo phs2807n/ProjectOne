@@ -45,6 +45,16 @@ public class Weapon_Base : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
+    private void OnEnable()
+    {
+        GameManager.Instance.changeWeaon += ChangeWeapon;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.changeWeaon -= ChangeWeapon;
+    }
+
     void Setting(WeaponType data)
     {
         id = data.id;

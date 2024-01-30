@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -15,33 +15,57 @@ public class Spawner : MonoBehaviour
         spawnPoint = GetComponentsInChildren<Transform>();
     }
 
-    void Update()
+    private void Start()
     {
-        timer += Time.deltaTime;
-        level = Mathf.Min(Mathf.FloorToInt(GameManager.Instance.gameTime / 10f), spawnDatas.Length -1);
-
-        if (timer > spawnDatas[level].spawnTime)
+        foreach(var data in spawnDatas)
         {
-            timer = 0;
-            Spawn();
+            StartCoroutine(SpawnCoroutine(data));
         }
     }
 
-    void Spawn()
+    //void Update()
+    //{
+    //    timer += Time.deltaTime;
+    //    level = Mathf.Min(Mathf.FloorToInt(GameManager.Instance.gameTime / 10f), spawnDatas.Length -1);
+
+    //    if (timer > spawnDatas[level].interval)
+    //    {
+    //        timer = 0;
+    //        Spawn();
+    //    }
+    //}
+
+    private IEnumerator SpawnCoroutine(SpawnData data)
     {
-        int number = Random.Range(0, GameManager.Instance.enemy.EnemyList.Count);
-        //GameObject enemy = GameManager.Instance.pool.Get(0);
-        Enemy enemy = Factory.Instance.GetEnemy(spawnPoint[Random.Range(1, spawnPoint.Length)].position);
-        //enemy.GetComponent<Enemy>().Init(number);
-        enemy.Init(number);
+        while (true)
+        {
+            yield return new WaitForSeconds(data.interval);
+
+            Enemy enemy = Factory.Instance.GetEnemy(spawnPoint[Random.Range(1, spawnPoint.Length)].position);
+            //enemy.GetComponent<Enemy>().Init(number);
+            enemy.Init(data.EnemyID);
+        }
     }
+
+    //void Spawn()
+    //{
+    //    int number = Random.Range(0, GameManager.Instance.enemy.EnemyList.Count);
+    //    //GameObject enemy = GameManager.Instance.pool.Get(0);
+    //    Enemy enemy = Factory.Instance.GetEnemy(spawnPoint[Random.Range(1, spawnPoint.Length)].position);
+    //    //enemy.GetComponent<Enemy>().Init(number);
+    //    enemy.Init(number);
+    //}
 }
 
 [System.Serializable]
-public class SpawnData
+public struct SpawnData
 {
-    public float spawnTime;
-    public int spriteType;
-    public int health;
-    public float speed;
+    public SpawnData(int id, float interval)
+    {
+        this.EnemyID = id;
+        this.interval = interval;
+    }
+
+    public int EnemyID;
+    public float interval;
 }

@@ -9,31 +9,42 @@ public class StatusMenu : MonoBehaviour
     PlayerInputActions inputActions;
 
     Transform status;
+    Transform skill;
 
-    bool isOpen;
+    bool isStatusOpen = false;
+    bool isSkillOpen = false;
 
     private void Awake()
     {
         inputActions = new PlayerInputActions();
         status = transform.GetChild(0);
-        isOpen = false;
+        skill = transform.GetChild(1);
     }
 
     private void OnEnable()
     {
         inputActions.Player.Enable();
         inputActions.Player.Status.performed += onStatusOpen;
+        inputActions.Player.Skill.performed += onSkillOpen;
     }
 
     private void OnDisable()
     {
+        inputActions.Player.Skill.performed -= onSkillOpen;
         inputActions.Player.Status.performed -= onStatusOpen;
         inputActions.Player.Disable();
     }
 
+    private void onSkillOpen(InputAction.CallbackContext context)
+    {
+        isSkillOpen = !isSkillOpen;
+        skill.gameObject.SetActive(isSkillOpen);
+
+    }
+
     private void onStatusOpen(InputAction.CallbackContext context)
     {
-        isOpen = !isOpen;
-        status.gameObject.SetActive(isOpen);
+        isStatusOpen = !isStatusOpen;
+        status.gameObject.SetActive(isStatusOpen);
     }
 }

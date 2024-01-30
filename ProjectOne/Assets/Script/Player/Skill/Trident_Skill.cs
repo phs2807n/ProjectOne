@@ -12,7 +12,8 @@ public class Trident_Skill : Skill_Base
             if (player.curMp > UseMp[Level])
             {
                 player.curMp -= UseMp[Level];
-                onTrident();
+                for (int i = 0; i < count[Level]; i++)
+                    onTrident();
                 CoolTimeStart();
             }
             else
@@ -28,16 +29,13 @@ public class Trident_Skill : Skill_Base
 
     void onTrident()
     {
-        for (int i = 0; i < count[Level]; i++)
-        {
-            Trident bullet = Factory.Instance.GetTrident(fireTransform.position);
+        Trident bullet = Factory.Instance.GetTrident(fireTransform.position);
 
-            Debug.Log("발사");
-            bullet.transform.localScale = new Vector3(count[Level], count[Level], count[Level]);
-            bullet.Init(-1,
-                GameManager.Instance.player_state.Atk * damage[Level],
-                GameManager.Instance.player_state.Atk_speed,
-                Vector3.zero);
-        }
+        Debug.Log("발사");
+
+        bullet.Init(-1,
+            GameManager.Instance.player_state.Atk * damage[Level],
+            GameManager.Instance.player_state.Atk_speed * Random.Range(0,2.0f),
+            Vector3.zero);
     }
 }

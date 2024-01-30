@@ -109,7 +109,7 @@ public class Weapon : Weapon_Base
         {
             if (isShotGun)
             {
-                float angleDelta = i * Random.Range(-3.0f, 3.0f);
+                float angleDelta = 3 * Random.Range(-3.0f, 3.0f);
                 fireTransforms[i].rotation = Quaternion.Euler(0, 0, angleDelta);
 
                 fireTransforms[i].localPosition = Vector3.zero;
