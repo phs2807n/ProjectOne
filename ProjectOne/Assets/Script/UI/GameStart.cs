@@ -21,11 +21,17 @@ public class GameStart : MonoBehaviour
     }
 
     public void OnGameStart()
-    {
+    {   
+        GameManager.Instance.isStart = true;
+        
         for(int i = 0;i < childTransform.Length;i++)
         {
             childTransform[i].gameObject.SetActive(false);
         }
+
+        AudioManager.Instance.PlayBgm(true);
+        AudioManager.Instance.PlaySfx(Sfx.Select);
+
         UI.gameObject.SetActive(true);
         player.gameObject.SetActive(true);
     }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Weapon : Weapon_Base
 {
@@ -11,6 +13,26 @@ public class Weapon : Weapon_Base
     IEnumerator fireCoroutine;
 
     public Transform[] fireTransforms;
+
+    /// <summary>
+    /// 스킬의 쿨타임
+    /// </summary>
+    public float cooltime_max;
+
+    /// <summary>
+    /// 현재 쿨타임
+    /// </summary>
+    protected float cooltime;
+
+    /// <summary>
+    /// 격발 가능 여부
+    /// </summary>
+    public bool isShot = true;
+
+    /// <summary>
+    /// 격발 여부 변경용 코르틴
+    /// </summary>
+    public IEnumerator cooltimeCoroutine;
 
     protected override void Awake()
     {
@@ -31,13 +53,17 @@ public class Weapon : Weapon_Base
         Debug.Log("행동");
         switch (id)
         {
+            case 0:
+                if(isShot)
+                    onFire();
+                CoolTimeStart();
+                break;
             case 1:
-            case 2:
                 //onFire();
                 Debug.Log("코르틴 시작");
                 StartCoroutine(fireCoroutine);
                 break;
-            case 3:
+            case 2:
                 StartCoroutine(fireCoroutine);
                 break;
         }
@@ -58,13 +84,54 @@ public class Weapon : Weapon_Base
     {
         while (true)
         {
-            onFire();
+            if(isShot)
+            {
+                onFire();
+            }
             yield return new WaitForSeconds(calltime);
+            isShot = true;
         }
+    }
+
+    protected IEnumerator CoolTimeCoroutine()
+    {
+        while (cooltime > 0.0f)
+        {
+            cooltime -= Time.deltaTime;
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        CoolTimeEnd();
+    }
+
+    public void CoolTimeStart()
+    {
+        cooltimeCoroutine = CoolTimeCoroutine();
+
+        // 콜타임 설정
+        cooltime_max = calltime;
+        cooltime = cooltime_max;
+        Debug.Log("쿨타임 시작");
+
+        isShot = false;
+
+        StartCoroutine(cooltimeCoroutine);
+    }
+
+    void CoolTimeEnd()
+    {
+        Debug.Log("쿨타임 끝");
+
+        isShot = true;
+
+        StopCoroutine(cooltimeCoroutine);
     }
 
     void onFire()
     {
+        isShot = false;
+
         Vector3 dir = GameManager.Instance.GetMousePostion() - transform.position;
         dir = dir.normalized;
 
@@ -96,6 +163,8 @@ public class Weapon : Weapon_Base
                 Debug.Log(dir + AngleToDir(fireTransforms[i].eulerAngles.z));
             }
         }
+
+        AudioManager.Instance.PlaySfx(Sfx.Range);
     }
 
     Vector3 AngleToDir(float angle)

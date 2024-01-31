@@ -72,6 +72,7 @@ public class PlayerMoving : MonoBehaviour
 
     public void OnHit()
     {
+        AudioManager.Instance.PlaySfx(Sfx.Melee);
         StartCoroutine(InvinvibleMode());
     }
 

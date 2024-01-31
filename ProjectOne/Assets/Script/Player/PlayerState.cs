@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum StatusType
 {
-    Hp, Mp, Atk, Def, Agi, SkillPoint
+    Hp, Mp, Atk, Def, Agi, StatusPoint, SkillPoint
 }
 
 public class PlayerState : Character
@@ -66,7 +66,7 @@ public class PlayerState : Character
 
         if(curHp < 1)
         {
-            onDie();
+            OnDie();
         }
     }
 
@@ -79,6 +79,8 @@ public class PlayerState : Character
 
         if (curExp == nextExp[Level])
         {
+            AudioManager.Instance.PlaySfx(Sfx.LevelUp);
+
             Level++;
             curExp = 0;
             Status_point += 3;
@@ -94,6 +96,7 @@ public class PlayerState : Character
     /// <param name="type"></param>
     public void State_Up(StatusType type)
     {
+        AudioManager.Instance.PlaySfx(Sfx.Select);
         Status_point--;
         if (Status_point < 0)
         {
@@ -126,6 +129,7 @@ public class PlayerState : Character
 
     public void State_Down(StatusType type)
     {
+        AudioManager.Instance.PlaySfx(Sfx.Select);
         Status_point++;
         switch (type)
         {
@@ -196,6 +200,7 @@ public class PlayerState : Character
 
     void OnDie()
     {
+        AudioManager.Instance.PlaySfx(Sfx.Lose);
         onDie?.Invoke();
     }
 }

@@ -37,8 +37,11 @@ public class StatusHUD : MonoBehaviour
                 case StatusType.Agi:
                     myText.text = $"{GameManager.Instance.player_state.Agi}";
                     break;
-                case StatusType.SkillPoint:
+                case StatusType.StatusPoint:
                     myText.text = $"현재 포인트 : {GameManager.Instance.player_state.Status_point}";
+                    break;
+                case StatusType.SkillPoint:
+                    myText.text = $"현재 포인트 : {GameManager.Instance.player_state.Skill_point}";
                     break;
             }
         }

@@ -175,7 +175,7 @@ SpriteRenderer:
   m_SortingLayerID: -633589965
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 978012912, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
+  m_Sprite: {fileID: 978012912, guid: 4ef8441328e133749a0b9c224987ee0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -365,7 +365,7 @@ SpriteRenderer:
   m_Size: {x: 0.5555556, y: 0.33333334}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1662759894359664310
@@ -562,8 +562,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -633589965
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 143021600, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -573,7 +573,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3796163905421416898
@@ -770,10 +770,8 @@ MonoBehaviour:
   spawnPoint:
   - {fileID: 0}
   spawnDatas:
-  - spawnTime: 1
-    spriteType: 0
-    health: 10
-    speed: 0
+  - EnemyID: 0
+    interval: 0
 --- !u!1 &4510719414786164280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,7 +1273,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &5297188044375531039
@@ -1352,6 +1350,8 @@ MonoBehaviour:
   sprite: {fileID: 0}
   isRight: 1
   fireTransforms: []
+  cooltime_max: 0
+  isShot: 1
 --- !u!1 &8654415946630572307
 GameObject:
   m_ObjectHideFlags: 0

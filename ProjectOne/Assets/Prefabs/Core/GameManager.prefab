@@ -49,11 +49,12 @@ MonoBehaviour:
   player_moving: {fileID: 0}
   player_state: {fileID: 0}
   weapon: {fileID: 0}
-  magin: {fileID: 0}
   enemy: {fileID: 8395492114611169476, guid: e2590fb651d79dd4cada183b05c97e60, type: 3}
   Weapon_no: 0
   gameTime: 0
-  evasion: 1
+  evasion: 3
+  calltime: 1
+  isStart: 0
   isMove: 0
 --- !u!114 &1414605607791654487
 MonoBehaviour:
@@ -67,12 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ce4676ac44b074e9ce6216329ead91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
+  maxHp: 50
   curHp: 0
-  maxMp: 0
+  maxMp: 30
   curMp: 0
   Atk: 2
-  Def: 5
+  Def: 0
   Agi: 7
 --- !u!114 &5150185532925622670
 MonoBehaviour:
