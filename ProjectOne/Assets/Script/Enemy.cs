@@ -33,7 +33,8 @@ public class Enemy : Character
 {
     public List<EnemyData> EnemyList;
     public Rigidbody2D target;
-    public float Atk_dir;
+    public float Agi_Base;
+    public float Agi_Slow;
 
     Rigidbody2D rigid;
     Collider2D coll;
@@ -128,7 +129,9 @@ public class Enemy : Character
         Atk = EnemyList[randomnumber].Atk;
         Def = EnemyList[randomnumber].Def;
         Agi = EnemyList[randomnumber].Agi;
-        Atk_dir = EnemyList[randomnumber].Atk_dir;
+
+        Agi_Base = Agi;
+        Agi_Slow = Agi * 0.5f;
     }
 
     void OnTriggerEnter2D(Collider2D collision)

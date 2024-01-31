@@ -33,6 +33,8 @@ public class GameManager : Singleton<GameManager>
     {
         base.Awake();
 
+        player_moving = FindObjectOfType<PlayerMoving>(true);
+
         inputActions = new PlayerInputActions();
         Move();
     }
@@ -82,28 +84,7 @@ public class GameManager : Singleton<GameManager>
         }
         changeWeaon?.Invoke(Weapon_no);
     }
-
-    //private void OnAction1(InputAction.CallbackContext context)
-    //{
-    //    Weapon_no = 0;
-    //    weapon.ChangeWeapon(Weapon_no);
-    //    magin.ChangeWeapon(Weapon_no);
-    //}
-
-    //private void OnAction2(InputAction.CallbackContext context)
-    //{
-    //    Weapon_no = 1;
-    //    weapon.ChangeWeapon(Weapon_no);
-    //    magin.ChangeWeapon(Weapon_no);
-    //}
-
-    //private void OnAction3(InputAction.CallbackContext context)
-    //{
-    //    Weapon_no = 2;
-    //    weapon.ChangeWeapon(Weapon_no);
-    //    magin.ChangeWeapon(Weapon_no);
-    //}
-
+   
     /// <summary>
     /// 좌클릭 메서드
     /// </summary>
@@ -204,11 +185,40 @@ public class GameManager : Singleton<GameManager>
     {
         player_moving.OnStop();
         isMove = false;
+        switch (Weapon_no)
+        {
+            case 0:
+                Slow(true);
+                break;
+        }
+    }
+
+    void Slow(bool isSlow)
+    {
+        EnemyPool enemyPool = FindObjectOfType<EnemyPool>();
+        enemyPool.Set();
+        for (int i = 0; i < enemyPool.enemys.Length; i++)
+        {
+            if (isSlow)
+            {
+                enemyPool.enemys[i].Agi = enemyPool.enemys[i].Agi_Slow;
+            }
+            else
+            {
+                enemyPool.enemys[i].Agi = enemyPool.enemys[i].Agi_Base;
+            }
+        }
     }
 
     public void Move()
     {
         isMove = true;
+        switch (Weapon_no)
+        {
+            case 0:
+                Slow(false);
+                break;
+        }
     }
 
 
@@ -216,4 +226,5 @@ public class GameManager : Singleton<GameManager>
     {
         gameTime += Time.deltaTime;
     }
+
 }
