@@ -17,12 +17,29 @@ public class GameManager : Singleton<GameManager>
     public Enemy enemy;
 
     [Header("# Player Info")]
+    /// <summary>
+    /// 무기 ID
+    /// </summary>
     public int Weapon_no = 0;
 
+    /// <summary>
+    /// 게임시간
+    /// </summary>
     public float gameTime;
+
+    public int kill;
+
+    /// <summary>
+    /// 회피 거리
+    /// </summary>
     public float evasion = 3.0f;
+
+    /// <summary>
+    /// 회피 쿨타임
+    /// </summary>
     public float calltime = 1.0f;
 
+    public bool isStart;
     public bool isMove;
 
     public Action<int> changeWeaon;
@@ -92,21 +109,24 @@ public class GameManager : Singleton<GameManager>
     /// <exception cref="NotImplementedException"></exception>
     private void onLeftAction(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (isStart)
         {
-           // Debug.Log(GetMousePostion());
-            if (isMove)
+            if (context.performed)
             {
-                player_moving.OnMove();
+                // Debug.Log(GetMousePostion());
+                if (isMove)
+                {
+                    player_moving.OnMove();
+                }
+                else
+                {
+                    weapon.Behaviour();
+                }
             }
-            else
+            if (context.canceled)
             {
-                weapon.Behaviour();
+                weapon.StopBehaviour();
             }
-        }
-        if(context.canceled)
-        {
-            weapon.StopBehaviour();
         }
     }
 
@@ -121,26 +141,44 @@ public class GameManager : Singleton<GameManager>
 
     private void OnRun(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (isStart)
         {
-            NotMove();
-        }
-        if (context.canceled)
-        {
-            Move();
+            if (context.performed)
+            {
+                NotMove();
+            }
+            if (context.canceled)
+            {
+                Move();
+            }
         }
     }
 
+    /// <summary>
+    /// 쉬프트키
+    /// </summary>
+    /// <param name="context"></param>
     private void OnEvasion(InputAction.CallbackContext context)
     {
-        if (isEvasion)
+        if (isStart)
         {
-            Evasion();
-            StartCoroutine(OnEvasionCoroutine());
+            if (isEvasion)
+            {
+                Evasion();
+                StartCoroutine(OnEvasionCoroutine());
+            }
         }
-        
+        else
+        {
+            GameStart start = FindObjectOfType<GameStart>();
+            start.OnGameStart();
+        }
     }
 
+    /// <summary>
+    /// 쉬프트 쿨타임
+    /// </summary>
+    /// <returns></returns>
     IEnumerator OnEvasionCoroutine()
     {
         float curTime = calltime;
@@ -155,6 +193,9 @@ public class GameManager : Singleton<GameManager>
         isEvasion = true;
     }
 
+    /// <summary>
+    /// 회피 함수
+    /// </summary>
     void Evasion()
     {
         isEvasion = false;
@@ -174,6 +215,9 @@ public class GameManager : Singleton<GameManager>
                 Input.mousePosition.y, -Camera.main.transform.position.z));
     }
 
+    /// <summary>
+    /// 죽을시 함수
+    /// </summary>
     void onDie()
     {
         enemy = FindAnyObjectByType<Enemy>();
@@ -192,9 +236,14 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
     }
-
+    
+    /// <summary>
+    /// 조준시 슬로우
+    /// </summary>
+    /// <param name="isSlow"></param>
     void Slow(bool isSlow)
     {
+        AudioManager.Instance.EffectBgm(isSlow);
         EnemyPool enemyPool = FindObjectOfType<EnemyPool>();
         enemyPool.Set();
         for (int i = 0; i < enemyPool.enemys.Length; i++)

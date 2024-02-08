@@ -20,10 +20,10 @@ public class WeaponUI : MonoBehaviour
         GameManager.Instance.changeWeaon += onChangeIcon;
     }
 
-    private void OnDisable()
-    {
-        GameManager.Instance.changeWeaon -= onChangeIcon;
-    }
+    //private void OnDisable()
+    //{
+    //    GameManager.Instance.changeWeaon -= onChangeIcon;
+    //}
 
     private void onChangeIcon(int obj)
     {

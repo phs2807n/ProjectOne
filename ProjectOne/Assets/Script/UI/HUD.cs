@@ -30,7 +30,7 @@ public class HUD : MonoBehaviour
                 myText.text = string.Format("Lv.{0:F0}", GameManager.Instance.player_state.Level + 1);
                 break;
             case InfoType.Kill:
-                //myText.text = string.Format("{0:F0}", GameManager.Instance.kill);
+                myText.text = string.Format("{0:F0}", GameManager.Instance.kill);
                 break;
             case InfoType.Time:
                 float remainTime = GameManager.Instance.gameTime;

@@ -50,10 +50,10 @@ public class Weapon_Base : MonoBehaviour
         GameManager.Instance.changeWeaon += ChangeWeapon;
     }
 
-    private void OnDisable()
-    {
-        GameManager.Instance.changeWeaon -= ChangeWeapon;
-    }
+    //private void OnDisable()
+    //{
+    //    GameManager.Instance.changeWeaon -= ChangeWeapon;
+    //}
 
     void Setting(WeaponType data)
     {

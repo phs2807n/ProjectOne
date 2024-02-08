@@ -145,6 +145,8 @@ public class Enemy : Character
                 curHp -= collision.GetComponent<Bullet>().damage;
                 StartCoroutine(KnockBack());
 
+                AudioManager.Instance.PlaySfx(Sfx.Hit);
+
                 if (curHp > 0)
                 {
                     // .. Live, Hit Action
@@ -191,10 +193,11 @@ public class Enemy : Character
     
     void Dead()
     {
+        AudioManager.Instance.PlaySfx(Sfx.Dead);
         coll.enabled = false;
         rigid.simulated = false;
         spriter.sortingOrder = 1;
-        //GameManager.instance.kill++;
+        GameManager.Instance.kill++;
         GameManager.Instance.player_state.GetExp();
         gameObject.layer = 0;
         anim.SetBool("Dead", true);
