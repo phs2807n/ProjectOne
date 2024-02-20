@@ -52,3 +52,13 @@ VR(Virtual Reality, 가상현실)
  (양안시차 이용)
 
 HMD(Head Mount Display)
+
+
+URP(Universal Render Pipeline)
+
+SRP(Scriptable Render Pipeline)
+ - LWRP(Light Weight RP) : 가벼운 랜더링 파이프라인
+ -> URP
+
+ - HDRP(Hight Definition RP) : AAA급 게임을 목표로 한 고해상도용 랜더링 파이프라인
+ -> 영상쪽으로 용도 변경
