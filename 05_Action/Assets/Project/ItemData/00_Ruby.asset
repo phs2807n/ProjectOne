@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4741ea5f66160a842b4d586a74c7f870, type: 3}
+  m_Name: 00_Ruby
+  m_EditorClassIdentifier: 
+  code: 0
+  itemName: "\uB8E8\uBE44"
+  itemDescription: "\uC124\uBA85"
+  itemIcon: {fileID: 21300000, guid: 70e92df91699f664ab5bad7bf4723022, type: 3}
+  price: 0
+  maxStackCount: 10
+  modelPrefab: {fileID: 0}
